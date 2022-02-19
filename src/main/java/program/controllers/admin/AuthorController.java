@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import program.dto.admin.authordto.AuthorAddDto;
-import program.dto.admin.roledto.RoleAddDto;
-import program.entities.Role;
+import program.entities.Author;
 import program.mapper.ApplicationMapper;
-import program.repositories.RoleRepository;
+import program.repositories.AuthorRepository;
 import program.storage.StorageService;
 
 import java.util.List;
@@ -19,10 +18,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AuthorController {
     private final StorageService storageService;
-
+    private final AuthorRepository authorRepository;
+    private final ApplicationMapper mapper;
+        // додавання фото
     @PostMapping("")
     public String create(AuthorAddDto model) {
-        String fileName=storageService.store(model.getImage());
+        Author author = mapper.AuthorByAddAuthorDto(model);
+        String fileName=storageService.store(model.getImageBase64());
+        author.setImage(fileName);
+        authorRepository.save(author);
         return fileName;
+    }
+    @GetMapping("")
+    public List<Author> list() {
+        return authorRepository.findAll();
     }
 }

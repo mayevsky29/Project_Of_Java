@@ -22,6 +22,7 @@ public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
 
+    // визначає, де розташовання папка для зберігання файлів
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
         this.rootLocation = Paths.get(properties.getLocation());
@@ -38,7 +39,7 @@ public class FileSystemStorageService implements StorageService {
             throw new StorageException("Failed to store file " + file.getOriginalFilename(), e);
         }
     }
-
+// Метод, який робить вибірку файлів для завантаження
     @Override
     public Stream<Path> loadAll() {
         try {
@@ -50,12 +51,13 @@ public class FileSystemStorageService implements StorageService {
         }
 
     }
-
+    // завантаження файла
     @Override
     public Path load(String filename) {
         return rootLocation.resolve(filename);
     }
-
+// метод отримує base64, перегенеровує його у байтовий масив
+// і зберігає його у зазначену папку відповідного типу
     @Override
     public String store(String base64) {
         try {
@@ -93,12 +95,12 @@ public class FileSystemStorageService implements StorageService {
             throw new StorageFileNotFoundException("Could not read file: " + filename, e);
         }
     }
-
+    // видалення файлів
     @Override
     public void deleteAll() {
         FileSystemUtils.deleteRecursively(rootLocation.toFile());
     }
-
+// створення шляху до папки, де будуть зберігатися файли
     @Override
     public void init() {
         try {

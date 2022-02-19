@@ -8,7 +8,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class StorageProperties {
 
     /**
-     * Folder location for storing files
+     * Папка, де будуть зберігатися файли
      */
     private String location = "uploaded";
 
