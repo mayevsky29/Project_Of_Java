@@ -13,6 +13,10 @@ public class Book {
     private int id;
     @Column(length = 200, nullable = false)
     private String name;
+    @Column(length = 500, nullable = false)
+    private String description;
+    @Column(length = 200, nullable = true)
+    private String image;
     @ManyToOne()
     @JoinColumn(name="author_id", nullable=false)
     private Author author;
