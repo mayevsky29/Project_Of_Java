@@ -3,7 +3,7 @@ package program.mapper;
 import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 import program.dto.admin.authordto.AuthorAddDto;
-import program.dto.admin.roledto.RoleAddDto;
+import program.dto.admin.authordto.roledto.RoleAddDto;
 import program.entities.Author;
 import program.entities.Role;
 

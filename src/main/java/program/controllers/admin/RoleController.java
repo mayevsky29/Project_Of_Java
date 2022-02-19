@@ -2,7 +2,7 @@ package program.controllers.admin;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import program.dto.admin.roledto.RoleAddDto;
+import program.dto.admin.authordto.roledto.RoleAddDto;
 import program.entities.Role;
 import program.mapper.ApplicationMapper;
 import program.repositories.RoleRepository;

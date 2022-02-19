@@ -17,6 +17,13 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello");
         SpringApplication.run(Main.class, args);
+
+         // String connString = "jdbc:mariadb://localhost:3306/java_product";
+                // AuthorAddDto db = new AuthorAddDto();
+                // db.InsertIntoDb(connString);
+                // ArrayList<Author> products = db.SelectProductsFromDb(connString);
+                // DbServices.ShowAllItems(products);
+
     }
     @Bean
     public WebMvcConfigurer corsConfigurer() {

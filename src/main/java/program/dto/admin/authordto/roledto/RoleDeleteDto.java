@@ -1,4 +1,4 @@
-package program.dto.admin.roledto;
+package program.dto.admin.authordto.roledto;
 
 import lombok.Data;
 

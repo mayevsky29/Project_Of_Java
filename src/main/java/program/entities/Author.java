@@ -20,4 +20,7 @@ public class Author {
 
     @OneToMany(mappedBy="author")
     private List<Book> books;
+
+//    public String getName() {
+//    }
 }

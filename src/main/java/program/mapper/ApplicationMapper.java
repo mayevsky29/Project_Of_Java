@@ -2,7 +2,7 @@ package program.mapper;
 
 import org.mapstruct.Mapper;
 import program.dto.admin.authordto.AuthorAddDto;
-import program.dto.admin.roledto.RoleAddDto;
+import program.dto.admin.authordto.roledto.RoleAddDto;
 import program.entities.Author;
 import program.entities.Role;
 
