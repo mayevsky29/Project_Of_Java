@@ -5,6 +5,7 @@ import App from './App';
 // import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 
+// здійснює контроль за вмістом вузла контейнера, що передається
 ReactDOM.render(
   <BrowserRouter>
     <App />

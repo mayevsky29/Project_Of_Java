@@ -8,6 +8,7 @@ const  UsersListPage = lazy(()=>import( "./components/admin/users/List"));
 const DefaultLayout = lazy(()=>import("./components/containers/DefaultLayout"));
 const HomePage = lazy(()=>import("./components/Home"));
 
+// Маршрути по сайту 
 function App() {
   return (
     <>
@@ -15,6 +16,7 @@ function App() {
         <Route
           path="/"
           element={
+            // За допомогою Suspense можна вказувати стан завантаження 
             <Suspense fallback={<div>Loading ...</div>}>
               <DefaultLayout />
             </Suspense>

@@ -13,12 +13,16 @@ const UsersListPage : React.FC =() => {
     //     console.log("begin");
     //     axios.get("http://localhost:8082/admin/roles").then((resp)=>console.log(resp));
     // },[]);
+    // посилання на фото
     const imgRef = React.useRef<HTMLImageElement>(null);
+    // посилання на попередній перегляд фото
     const prevRef = React.useRef<HTMLImageElement>(null);
+    // визначає стан обєкта, фото, який обробляється кропером
     const [cropperObj, setCropperObj] = React.useState<Cropper>();
+    // вказує стан відображення модалки
     const [visible, setVisible] = React.useState(false);
 
-
+// починає працювати, коли відбувається зміна файлу
     const handleChangeFile = async (e: any) => {
       const file = (e.target.files as FileList)[0];
       if (file) {
@@ -33,6 +37,7 @@ const UsersListPage : React.FC =() => {
             preview: prevRef.current as HTMLImageElement,
           });
         }
+        // відбуваться зміна кропером фото та її встановлення
         cropper?.replace(url);
         setCropperObj(cropper);
       }
@@ -61,7 +66,7 @@ const UsersListPage : React.FC =() => {
           type="file"
           onChange={handleChangeFile}
         />
-
+{/* Модалка для завантаження фото та редагування за допомогою кропера */}
         <Modal
           title="Обробка фото"
           centered
